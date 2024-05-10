@@ -1,7 +1,7 @@
 # OneBit: Towards Extremely Low-bit Large Language Models
 
 <div align="center">
-  <img src="imgs/logo.png" style="width: 65%">
+  <img src="imgs/logo.png" style="width: 50%">
 </div>
 
 <p align="center">
