@@ -1,0 +1,9 @@
+{
+  "kd_132k": {
+    "file_name": "all_gen_132k.json",
+    "file_sha1": "6d8cd4a383528e395082925af72080fdea311b9d",
+    "columns": {
+      "prompt": "text"
+    }
+  }
+}
