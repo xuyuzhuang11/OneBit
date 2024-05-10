@@ -22,7 +22,7 @@
 - OneBit Framework has a novel and efficient 1-bit model architecture for LLMs, which can improve both the time (requiring device support) and space efficiency during model inference. Moreover, this architecture is more stable during quantizing LLMs.
 - We want to demonstrate that OneBit is very useful in resource constrained scenarios, such as edge-side devices.
 
-Please refer to our [📃paper](https://arxiv.org/abs/2402.11295) for more details.
+Please refer to our 📃[paper](https://arxiv.org/abs/2402.11295) for more details.
 
 ## News
 
@@ -30,14 +30,52 @@ Please refer to our [📃paper](https://arxiv.org/abs/2402.11295) for more detai
 
 - [2024/02/17] We released the preprint paper to share this OneBit discovery.
 
-# 🏷️ Benchmarks
+## 🏷️ Benchmarks
+
+Please note that due to the use of different checkpoints, the evaluation results listed here have very minor differences from the results in our paper, but this does not affect the existing conclusions.
 
 - LLaMA-7B
 
 | Method | Wiki2 | C4 | Winograde | Hellaswag | PIQA | BoolQ | ARC-e | ARC-c | avg. |
 |--------|-------|----|-----------|-----------|------|-------|-------|-------|------|
 | FP16 | 5.68 | 7.08 | 66.85 | 72.99 | 77.37 | 73.21 | 52.53 | 41.38 | 64.06 |
-| OmniQuant | 15.34 | 26.21 | 52.96 | 43.68 | 62.79 | 58.69 | 41.54 | 29.35 | 48.17 |
-| OneBit | 10.20 | 11.41 | 58.80 | 51.60 | 67.57 | 56.94 | 42.60 | 30.20 | 51.29 |
+| OmniQuant | 15.34 | 26.21 | 52.96 | 43.68 | 62.79 | **58.69** | 41.54 | 29.35 | 48.17 |
+| **OneBit** | **10.20** | **11.41** | **58.80** | **51.60** | **67.57** | 56.94 | **42.60** | **30.20** | **51.29** |
 
 - LLaMA-13B
+
+| Method | Wiki2 | C4 | Winograde | Hellaswag | PIQA | BoolQ | ARC-e | ARC-c | avg. |
+|--------|-------|----|-----------|-----------|------|-------|-------|-------|------|
+| FP16 | 5.09 | 6.61 | 70.17 | 76.24 | 79.05 | 68.47 | 59.85 | 44.54 | 66.39 |
+| OmniQuant | 13.43 | 19.33 | 53.83 | 54.16 | 68.99 | 62.20 | **45.50** | 30.38 | 52.51 |
+| **OneBit** | **9.19** | **10.26** | **62.12** | **56.75** | **70.35** | **63.82** | 44.57 | **31.83** | **54.91** |
+
+- LLaMA2-7B
+
+| Method | Wiki2 | C4 | Winograde | Hellaswag | PIQA | BoolQ | ARC-e | ARC-c | avg. |
+|--------|-------|----|-----------|-----------|------|-------|-------|-------|------|
+| FP16 | 5.47 | 6.97 | 67.09 | 72.94 | 76.88 | 71.10 | 53.58 | 40.61 | 63.70 |
+| OmniQuant | 31.21 | 64.34 | 51.22 | 33.87 | 56.53 | 59.14 | 33.63 | 24.32 | 43.12 |
+| **OneBit** | **9.76** | **11.14** | **58.17** | **52.51** | **67.79** | **63.30** | **41.67** | **29.35** | **52.13** |
+
+- LLaMA2-13B
+
+| Method | Wiki2 | C4 | Winograde | Hellaswag | PIQA | BoolQ | ARC-e | ARC-c | avg. |
+|--------|-------|----|-----------|-----------|------|-------|-------|-------|------|
+| FP16 | 4.88 | 6.47 | 69.77 | 76.62 | 79.05 | 68.99 | 57.95 | 44.20 | 66.10 |
+| OmniQuant | 16.88 | 27.02 | 53.20 | 50.34 | 62.24 | 62.05 | 40.66 | 29.61 | 49.68 |
+| **OneBit** | **8.77** | **10.17** | **61.33** | **56.48** | **69.97** | **64.98** | **42.85** | **33.79** | **54.90** |
+
+All the best results are highlighted in bold.
+
+## ⬇️Installation
+
+## Quantization
+
+## Evaluation
+
+## Add New Model
+
+## License
+
+## Citation
