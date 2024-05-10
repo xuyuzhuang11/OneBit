@@ -1,6 +1,19 @@
 # OneBit: Towards Extremely Low-bit Large Language Models
 
 <div align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/xuyuzhuang11/OneBit" alt="GitHub Code License">
+  </a>
+  <a href="https://github.com/xuyuzhuang11/OneBit/commits/main">
+    <img src="https://img.shields.io/github/last-commit/xuyuzhuang11/OneBit" alt="GitHub last commit">
+  </a>
+  <a href="https://github.com/xuyuzhuang11/OneBit/pulls">
+    <img src="https://img.shields.io/badge/PRs-welcome-blue" alt="GitHub pull request">
+  </a>
+  <a href="https://github.com/xuyuzhuang11/OneBit">
+    <img src="https://img.shields.io/github/v/release/xuyuzhuang11/OneBit" alt="GitHub release version">
+  </a>
+  <br>
   <img src="imgs/logo.png" style="width: 50%">
 </div>
 
@@ -24,7 +37,7 @@
 
 Please refer to our 📃[paper](https://arxiv.org/abs/2402.11295) for more details.
 
-## News
+## 📰 News
 
 - [2024/05/20] We released the training code, evaluation code, and data for reproducing our result.
 
@@ -70,12 +83,12 @@ All the best results are highlighted in bold.
 
 ## ⬇️Installation
 
-## Quantization
+## 🏁 Quantization
 
-## Evaluation
+## ✅ Evaluation
 
-## Add New Model
+## ⏩ Add New Model
 
-## License
+## 🗞 License
 
-## Citation
+## ❤️ Citation
