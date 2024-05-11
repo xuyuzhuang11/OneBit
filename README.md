@@ -25,6 +25,8 @@
   <br>
   <strong>😱 Compressing 90%+ Space yet Maintaining 80%+ Performance 😱</strong>
   <br>
+  <strong>🤗 Welcome to Pull Requests and Build our OneBit Model Center 🤗</strong>
+  <br>
 </p>
 
 <div align="center">
@@ -162,6 +164,14 @@ CUDA_VISIBLE_DEVICES=0 python lm_eval.py
 
 ## ⏩ Add New Models
 
+We warmly welcome friends from around the world to join us in building and researching extremely low-bit LLMs. 🤗🤗🤗Let's build the open-source OneBit LLM center together!🤗🤗🤗 If you need to use the OneBit framework for your own model, you need to define your model in the `transformers` package.
+
+The model folder is `transformers/src/transformers/models`. Our model is in `bitllama`, and you can define your own model architecture as you want, such as `bitcat`, `bitdog`, etc.
+
+If you need to perform efficient inference using compressed checkpoints, you should also define the inference class to recognize the compressed model weights. In our models, these correspond to **BitLlamaForCausalLM** and **BitLlamaForCausalLMInf**, respectively.
+
+Moreover, our core component, the 1-bit linear layer, is located at 'transformers/src/transformers/models/bitnet.py', and you can refer to it for more details.
+
 ## 🗞 License
 
 This code and checkpoints are released under the MIT license, allowing you to freely use them within its framework. However, please note not to forget to cite the work as follows.
@@ -178,3 +188,7 @@ If you found this work useful, please consider citing:
   year={2024}
 }
 ```
+
+## Acknowledgement
+
+Our code is developed based on the [transformers](https://github.com/huggingface/transformers) and [llama_factory](https://github.com/hiyouga/LLaMA-Factory) repositories. We would like to thank them for their very important and meaningful work.😊🤝
