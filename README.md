@@ -95,10 +95,86 @@ pip install -r ./requirements.txt
 
 ## 🏁 Quantization
 
+The quantization process can be divided into 3 steps: building an initial checkpoint, training, and packaging. The packaged checkpoint compresses over 90% of the space occupancy and can be used during inference or deployment. We provide the code for this part in the `scripts` folder.
+
+First, you can build an start checkpoint in the following recommended way. The start checkpoint will be saved in `/home/me/OneBit/scripts/start_llama_7b` here and `/home/me/llama_7b` is the path of released model downloaded from Internet. "llama_7b" is a name that you can set freely.
+
+```bash
+# example: python scripts/build_start_ckpt.py $NAME $FP16_MODEL_PATH $OUTPUT_CKPT_PATH
+python scripts/build_start_ckpt.py llama_7b /home/me/llama_7b /home/me/OneBit/scripts/start_llama_7b
+```
+
+Then, you can use the example scripts we provide to complete the model distillation (knowledge transfer) process. Note that the arguments located at the beginning of the script need to be correctly set before running, as follows:
+
+```bash
+# arguments
+MODEL_NAME=llama_7b
+SCRIPT_DIR=$(dirname "$0")              # scripts folder
+DATASET=kd_132k                         # our released self-generated data, need not to be modified
+TEACHER_MODEL_PATH=/home/xyz/models/llama-7b            # path of FP16 model
+STUDENT_MODEL_PATH=$SCRIPT_DIR/ckpt_$MODEL_NAME         # path of intermediate checkpoints to be saved
+STUDENT_MODEL_START_PATH=$SCRIPT_DIR/start_$MODEL_NAME  # path of start checkpoint
+STUDENT_MODEL_EXIST_PATH=$SCRIPT_DIR/ckpt_$MODEL_NAME/checkpoint-5000   # if you want to continue training process from a intermediate checkpoints
+
+# using slurm to train
+sbatch llama_7b.sh
+# using bash to train
+bash llama_7b.sh
+```
+
+Finally, you can perform lossless compression and packaging on the final training checkpoint, which can significantly reduce the runtime space of model inference. Similarly, you need to correctly fill in the checkpoint path at the beginning of the script.
+
+```python
+# arguments
+ckpt_path = '/home/me/scripts/onebit_llama_7b_trainckpt'       # final training checkpoint
+inf_ckpt_path = '/home/me/checkpoints/onebit_llama_7b'         # compressed checkpoint to be saved
+```
+
+We also present deepspeed configuration file (for deepspeed) and hostfile (for training models >7B). Please refer to `ds_config.json` and `hostfile`.
+
 ## ✅ Evaluation
 
-## ⏩ Add New Model
+To facilitate the accurate reproduction of the experimental results presented in our paper and this page, we provide the necessary evaluation code for your reference, which is located in the `evaluation` folder. Users only need to correctly fill in the arguments in the `lm_eval.py` to automatically run the evaluation process and obtain results.
+
+```python
+# arguments
+args = {
+    "multigpu": False,                              # this codes support multigpu evaluation
+    "batch_size": 32,                               # larger bsz only for compressed checkpoints :-)
+    "net": "onebitllama",                           # need not to be modified for llama
+    "model_family": "onebitllama",
+    "eval_ppl": True,                               # perform Perplexity evaluation
+    "seed": 1234,
+    "model": '/home/xyz/checkpoints/onebit_llama_7b',   # path of model checkpoint, important!
+    # "tasks": '',
+    "tasks": 'hellaswag,winogrande,piqa,boolq,arc_easy,arc_challenge',
+    "num_fewshot": 0,                               # Zero-shot Accuracy
+    "limit": -1,
+}
+```
+
+Then, you can run it like:
+
+```bash
+cd evaluation
+CUDA_VISIBLE_DEVICES=0 python lm_eval.py
+```
+
+## ⏩ Add New Models
 
 ## 🗞 License
 
+This code and checkpoints are released under the MIT license, allowing you to freely use them within its framework. However, please note not to forget to cite the work as follows.
+
 ## ❤️ Citation
+
+If you found this work useful, please consider citing:
+
+```bibtex
+@article{xu2024onebit,
+  title={OneBit: Towards Extremely Low-bit Large Language Models},
+  author={Xu, Yuzhuang and Han, Xu and Yang, Zonghan and Wang, Shuo and Zhu, Qingfu and Liu, Zhiyuan and Liu, Weidong and Che, Wanxiang},
+  journal={arXiv preprint arXiv:2402.11295},
+  year={2024}
+}
+```
