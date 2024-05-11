@@ -81,7 +81,17 @@ Please note that due to the use of different checkpoints, the evaluation results
 
 All the best results are highlighted in bold.
 
-## ⬇️Installation
+## ⬇️ Installation
+
+Download and install the dependencies to use these codes. You should clone this repository to your local machine, enter the code folder, and install it. We suggest the installation order to be transformers first and llama_factory after. Please note that [Pytorch](https://pytorch.org/) v2.0.0 is required to quantize the models, whereas the evaluation process does not.
+
+```bash
+git clone https://github.com/xuyuzhuang11/OneBit.git
+cd OneBit/transformers
+pip install -e .
+cd ../llama_factory
+pip install -r ./requirements.txt
+```
 
 ## 🏁 Quantization
 
