@@ -170,7 +170,7 @@ The model folder is `transformers/src/transformers/models`. Our model is in `bit
 
 If you need to perform efficient inference using compressed checkpoints, you should also define the inference class to recognize the compressed model weights. In our models, these correspond to **BitLlamaForCausalLM** and **BitLlamaForCausalLMInf**, respectively.
 
-Moreover, our core component, the 1-bit linear layer, is located at 'transformers/src/transformers/models/bitnet.py', and you can refer to it for more details.
+Moreover, our core component, the 1-bit linear layer, is located at `transformers/src/transformers/models/bitnet.py`, and you can refer to it for more details.
 
 ## 🗞 License
 
