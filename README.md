@@ -92,7 +92,7 @@ git clone https://github.com/xuyuzhuang11/OneBit.git
 cd OneBit/transformers
 pip install -e .
 cd ../llama_factory
-pip install -r ./requirements.txt
+pip install -r ../requirements.txt
 ```
 
 ## 🏁 Quantization
