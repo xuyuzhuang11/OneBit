@@ -21,7 +21,7 @@
   <br>
   <strong>🔥 The First 1-bit LLM Quantization Method 🔥</strong>
   <br>
-  <strong>👍🏻 The SOTA Method of 1-bit LLM Quantization (till 2024.05.20)👍🏻</strong>
+  <strong>👍🏻 The SOTA Method of 1-bit LLM Quantization (till 2024.06.20)👍🏻</strong>
   <br>
   <strong>😱 Compressing 90%+ Space yet Maintaining 80%+ Performance 😱</strong>
   <br>
