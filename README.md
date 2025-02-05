@@ -181,11 +181,13 @@ This code and checkpoints are released under the MIT license, allowing you to fr
 If you found this work useful, please consider citing:
 
 ```bibtex
-@article{xu2024onebit,
+@inproceedings{onebit2024xu,
   title={OneBit: Towards Extremely Low-bit Large Language Models},
   author={Xu, Yuzhuang and Han, Xu and Yang, Zonghan and Wang, Shuo and Zhu, Qingfu and Liu, Zhiyuan and Liu, Weidong and Che, Wanxiang},
-  journal={arXiv preprint arXiv:2402.11295},
-  year={2024}
+  booktitle = {Advances in Neural Information Processing Systems},
+  year={2024},
+  volume = {37},
+  pages = {66357--66382},
 }
 ```
 
